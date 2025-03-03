@@ -1,302 +1,189 @@
-/* Reset default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #e0f7e0; /* Light green background for detailed view, per image 3 and 4 */
-    color: #333;
-    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-/* Pokémon Grid (List View) */
-.pokelist {
+section {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3x3 grid for 9 Pokémon, matching image 0 */
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    padding: 50px;
+    text-align: center;
+    align-items: start;
     margin: 0 auto;
+    padding: 20px;
+    row-gap: 3em;
 }
-
-.pokelist article {
-    background-color: #ffffff; /* White background for cards, per image 0 */
-    border-radius: 10px;
+#root{
+    padding: 5em;
+}
+h1{
+    margin-left: 46px;
+}
+article {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin-left: 21px;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+A{
+    text-decoration: none;
+    font-weight: 700;
+    color: black;
+}
+a:hover{
+    color: white;
+}
+article{
+    background-color: #60b4e8;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    width: 400px;
     text-align: center;
     transition: transform 0.2s;
-    width: 100%;
-    max-width: 250px; /* Smaller cards for grid, matching image 0 */
+    height: 22em;
+    
 }
 
-.pokelist article:hover {
+
+article:hover {
     transform: scale(1.05);
 }
 
-.pokelist article img {
-    width: 150px; /* Smaller image for grid, per image 0 */
-    height: 150px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto 10px;
+article img {
+    width: 400px;
+    height: 283px;
+    object-fit: cover;
 }
 
-.pokelist article h2 {
-    font-size: 18px;
-    color: #333;
+article h1 {
     margin: 10px 0;
-    text-transform: capitalize;
-}
-
-.pokelist article .id {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.pokelist a {
-    text-decoration: none;
-    color: black;
-    font-weight: 700;
-}
-
-.pokelist a:hover {
-    color: #ffffff; /* Matches your hover state, but adjust if needed for grid */
-}
-
-/* Pokémon Detail View */
-article {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    position: relative;
-}
-
-article header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-article header h2 {
-    flex-grow: 1;
-    text-align: center;
-    font-size: 24px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    font-weight: bold;
-}
-
-article header .id {
-    margin-left: 10px;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    color: #666;
-    font-weight: bold;
-}
-
-article header img {
-    display: block;
-    margin: 0 auto;
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-    border-radius: 5px;
-}
-
-/* Type buttons for detailed view */
-.type {
-    display: inline-block;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin: 0 5px 5px 0;
-    font-size: 12px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    cursor: default;
-}
-
-.type.Grass {
-    background-color: #78c850; /* Green for Grass type */
-    color: #fff;
-    border: none;
-}
-
-.type.Poison {
-    background-color: #a040a0; /* Purple for Poison type */
-    color: #fff;
-    border: none;
-}
-
-.type.Fire {
-    background-color: #f08030; /* Orange for Fire type */
-    color: #fff;
-    border: none;
-}
-
-.type.Water {
-    background-color: #6890f0; /* Blue for Water type */
-    color: #fff;
-    border: none;
-}
-
-.type.Flying {
-    background-color: #a890f0; /* Light purple for Flying type */
-    color: #fff;
-    border: none;
-}
-
-.type.Bug {
-    background-color: #A8B820; /* Yellow-green for Bug type */
-    color: #fff;
-    border: none;
-}
-
-/* Stats row (Abilities, Weight, Height) */
-.stats-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.stats-row div {
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    display: flex;
-    align-items: center;
-}
-
-.stats-row .icon {
-    width: 20px;
-    height: 20px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-right: 5px;
-}
-
-/* Description (About text) */
-.description {
-    margin-top: 10px;
-    text-align: left;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    line-height: 1.5;
-}
-
-/* Base Stats heading */
-article h3 {
     font-size: 18px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    text-align: center;
 }
 
-/* Base Stats list */
-article ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-}
-
-article li {
+article p {
+    padding: 0 10px 10px;
     font-size: 14px;
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin-bottom: 10px;
+    color: #000000;
+} 
+
+/* ----------------------------- */
+
+
+.card{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: auto;
+    padding: 8em;
+    }
+.big{
+    width: 876px;
+    height: 964px;
+    object-fit: cover;
+ 
+    
+}
+span{
+    font-size: larger;
+}
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+button{
+    border: none;
+    background: none;
+}
+
+.card__favoritebtn {
+    background-color: transparent; 
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out; 
+}
+
+.card__favoritebtn i {
+    color: black; 
+    font-size: 28px;
+    transition: all 0.3s ease-in-out;
+}
+
+.card__favoritebtn--selected {
+    background-color: red; 
+}
+
+.card__favoritebtn--selected i {
+    color: white; 
+}
+
+
+i{
+    font-size: large;
+}
+.card__favoritebtn2{
+    margin-left: 31em;
+    position: absolute;
+    font-size: x-large;
+    color: rgb(0, 0, 0);
+}
+
+
+.heart-selected {
+    background-color: red; 
+    color: white; 
+    border-radius: 50%; 
+    padding: 5px; 
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center;
+    width: 30px; 
+    height: 30px; 
+}
+
+.card__favoritebtn2 {
+    background-color: transparent;
+    border: none;
+    font-size: 23px;
+    cursor: pointer;
     display: flex;
     align-items: center;
+    gap: 5px;
 }
 
-/* Progress bars for Base Stats */
-article progress {
-    width: 100%;
-    height: 10px;
-    margin-left: 10px;
-    flex-grow: 1;
+.card__favoritebtn2 i {
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
-article progress[value] {
-    -webkit-appearance: none;
-    appearance: none;
-    border: none;
-    border-radius: 5px;
-    background-color: #e0e0e0;
-}
 
-article progress[value]::-webkit-progress-bar {
-    background-color: #e0e0e0;
-    border-radius: 5px;
-}
+/* ///////////////////////// */
 
-article progress[value]::-webkit-progress-value {
-    background-color: #78c850; /* Green for progress, matching Grass type (default for consistency) */
-    border-radius: 5px;
-}
-
-/* Navigation arrows */
-.nav-arrow {
-    position: absolute;
-    top: 20px;
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 5px;
-}
-
-.nav-arrow.left {
-    left: 20px;
-}
-
-.nav-arrow.right {
-    right: 20px;
-}
-
-/* Dark Mode */
 body.dark-mode {
     background-color: #121212;
-    color: #ffffff;
+    color: white;
 }
 
-.pokelist article.dark-mode,
-article.dark-mode {
-    background-color: #2c2c2c;
-    color: #ffffff;
-}
-
-.type.dark-mode {
-    background-color: #444; /* Darker background for type buttons in dark mode */
-    color: #fff;
-}
-
-article progress[value].dark-mode::-webkit-progress-value {
-    background-color: #78c850; /* Keep green for consistency, or adjust to a darker shade */
-}
-
-article progress[value].dark-mode::-webkit-progress-bar {
-    background-color: #444; /* Darker background for progress bar */
-}
-
-/* Dark Mode Toggle */
+/* Checkbox styling */
 .toggle-container {
-    position: fixed;
-    top: 10px;
-    right: 10px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -331,88 +218,4 @@ article progress[value].dark-mode::-webkit-progress-bar {
 
 .dark-mode-toggle:checked::before {
     transform: translateX(20px);
-}
-
-/* Phone-responsive styles */
-@media (max-width: 480px) {
-    .pokelist {
-        grid-template-columns: 1fr; /* Stack cards vertically on mobile */
-        gap: 10px;
-        padding: 10px;
-    }
-
-    .pokelist article {
-        max-width: 100%;
-        margin: 0;
-    }
-
-    .pokelist article img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .pokelist article h2 {
-        font-size: 16px;
-    }
-
-    .pokelist article .id {
-        font-size: 12px;
-    }
-
-    article {
-        padding: 10px;
-        margin: 0;
-    }
-
-    article header h2 {
-        font-size: 20px;
-    }
-
-    article header .id {
-        font-size: 14px;
-    }
-
-    article header img {
-        width: 150px;
-        height: 150px;
-    }
-
-    article p, .description, article li {
-        font-size: 12px;
-    }
-
-    article h3 {
-        font-size: 16px;
-    }
-
-    .stats-row {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .stats-row div {
-        margin-bottom: 5px;
-    }
-
-    article progress {
-        height: 8px;
-    }
-
-    .nav-arrow {
-        top: 10px;
-        font-size: 20px;
-    }
-
-    .nav-arrow.left {
-        left: 10px;
-    }
-
-    .nav-arrow.right {
-        right: 10px;
-    }
-
-    .toggle-container {
-        top: 5px;
-        right: 5px;
-    }
 }
