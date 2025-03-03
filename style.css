@@ -1,0 +1,418 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7e0; /* Light green background for detailed view, per image 3 and 4 */
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Pokémon Grid (List View) */
+.pokelist {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3x3 grid for 9 Pokémon, matching image 0 */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pokelist article {
+    background-color: #ffffff; /* White background for cards, per image 0 */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+    width: 100%;
+    max-width: 250px; /* Smaller cards for grid, matching image 0 */
+}
+
+.pokelist article:hover {
+    transform: scale(1.05);
+}
+
+.pokelist article img {
+    width: 150px; /* Smaller image for grid, per image 0 */
+    height: 150px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.pokelist article h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+    text-transform: capitalize;
+}
+
+.pokelist article .id {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.pokelist a {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+
+.pokelist a:hover {
+    color: #ffffff; /* Matches your hover state, but adjust if needed for grid */
+}
+
+/* Pokémon Detail View */
+article {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+article header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+article header h2 {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    font-weight: bold;
+}
+
+article header .id {
+    margin-left: 10px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: #666;
+    font-weight: bold;
+}
+
+article header img {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+/* Type buttons for detailed view */
+.type {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 5px 5px 0;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    cursor: default;
+}
+
+.type.Grass {
+    background-color: #78c850; /* Green for Grass type */
+    color: #fff;
+    border: none;
+}
+
+.type.Poison {
+    background-color: #a040a0; /* Purple for Poison type */
+    color: #fff;
+    border: none;
+}
+
+.type.Fire {
+    background-color: #f08030; /* Orange for Fire type */
+    color: #fff;
+    border: none;
+}
+
+.type.Water {
+    background-color: #6890f0; /* Blue for Water type */
+    color: #fff;
+    border: none;
+}
+
+.type.Flying {
+    background-color: #a890f0; /* Light purple for Flying type */
+    color: #fff;
+    border: none;
+}
+
+.type.Bug {
+    background-color: #A8B820; /* Yellow-green for Bug type */
+    color: #fff;
+    border: none;
+}
+
+/* Stats row (Abilities, Weight, Height) */
+.stats-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.stats-row div {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.stats-row .icon {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+}
+
+/* Description (About text) */
+.description {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Base Stats heading */
+article h3 {
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Base Stats list */
+article ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+article li {
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Progress bars for Base Stats */
+article progress {
+    width: 100%;
+    height: 10px;
+    margin-left: 10px;
+    flex-grow: 1;
+}
+
+article progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
+
+article progress[value]::-webkit-progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+}
+
+article progress[value]::-webkit-progress-value {
+    background-color: #78c850; /* Green for progress, matching Grass type (default for consistency) */
+    border-radius: 5px;
+}
+
+/* Navigation arrows */
+.nav-arrow {
+    position: absolute;
+    top: 20px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+.nav-arrow.left {
+    left: 20px;
+}
+
+.nav-arrow.right {
+    right: 20px;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.pokelist article.dark-mode,
+article.dark-mode {
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+.type.dark-mode {
+    background-color: #444; /* Darker background for type buttons in dark mode */
+    color: #fff;
+}
+
+article progress[value].dark-mode::-webkit-progress-value {
+    background-color: #78c850; /* Keep green for consistency, or adjust to a darker shade */
+}
+
+article progress[value].dark-mode::-webkit-progress-bar {
+    background-color: #444; /* Darker background for progress bar */
+}
+
+/* Dark Mode Toggle */
+.toggle-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dark-mode-toggle {
+    width: 40px;
+    height: 20px;
+    position: relative;
+    appearance: none;
+    background: #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dark-mode-toggle::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:checked {
+    background: #007BFF;
+}
+
+.dark-mode-toggle:checked::before {
+    transform: translateX(20px);
+}
+
+/* Phone-responsive styles */
+@media (max-width: 480px) {
+    .pokelist {
+        grid-template-columns: 1fr; /* Stack cards vertically on mobile */
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .pokelist article {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .pokelist article img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .pokelist article h2 {
+        font-size: 16px;
+    }
+
+    .pokelist article .id {
+        font-size: 12px;
+    }
+
+    article {
+        padding: 10px;
+        margin: 0;
+    }
+
+    article header h2 {
+        font-size: 20px;
+    }
+
+    article header .id {
+        font-size: 14px;
+    }
+
+    article header img {
+        width: 150px;
+        height: 150px;
+    }
+
+    article p, .description, article li {
+        font-size: 12px;
+    }
+
+    article h3 {
+        font-size: 16px;
+    }
+
+    .stats-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .stats-row div {
+        margin-bottom: 5px;
+    }
+
+    article progress {
+        height: 8px;
+    }
+
+    .nav-arrow {
+        top: 10px;
+        font-size: 20px;
+    }
+
+    .nav-arrow.left {
+        left: 10px;
+    }
+
+    .nav-arrow.right {
+        right: 10px;
+    }
+
+    .toggle-container {
+        top: 5px;
+        right: 5px;
+    }
+}
